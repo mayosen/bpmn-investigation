@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_0gne2vt" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.41.0" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.8.0">
+  <decision id="InvestigatorDecision" name="Решение следователя">
+    <decisionTable id="DecisionTable_0tjhrvn" hitPolicy="FIRST">
+      <input id="Input_1" label="Доказательства">
+        <inputExpression id="InputExpression_1" typeRef="number">
+          <text>provesPercent</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1hpv6qt" label="Личность подозреваемого">
+        <inputExpression id="LiteralExpression_07tpkgb" typeRef="boolean">
+          <text>suspectHasBeenIdentified</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1aptzvb" label="УголовностьДеяния">
+        <inputExpression id="LiteralExpression_0npdmf1" typeRef="boolean">
+          <text>hasCriminal</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="Решение" name="shouldStartInvestigation" typeRef="number" />
+      <rule id="DecisionRule_0ylf3rd">
+        <description>Прекратить дело</description>
+        <inputEntry id="UnaryTests_1tccjbd">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1yh9g21">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1i528nm">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0qfbavk">
+          <text>1</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1kpwqde">
+        <description>Приостановить расследование</description>
+        <inputEntry id="UnaryTests_1v68wrj">
+          <text>&lt; 40</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_16g8j7x">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1fpj8e8">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_01vp4a0">
+          <text>2</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0ga9nwi">
+        <description>Приостановить расследование</description>
+        <inputEntry id="UnaryTests_19h0yod">
+          <text>[40..100]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_11m507a">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1yod6om">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_07eusna">
+          <text>2</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0tynmgd">
+        <description>Составить обвинительное заключение</description>
+        <inputEntry id="UnaryTests_1fzo70c">
+          <text>&gt;= 70</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ldcln6">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0dyx95f">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0uo3m3a">
+          <text>3</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="InvestigatorDecision">
+        <dc:Bounds height="80" width="180" x="160" y="100" />
+      </dmndi:DMNShape>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>
