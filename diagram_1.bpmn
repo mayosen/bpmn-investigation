@@ -1228,7 +1228,7 @@
   </bpmn:message>
   <bpmn:message id="Message_0309ua7" name="MessageCaseReturnedToProsecutor">
     <bpmn:extensionElements>
-      <zeebe:subscription correlationKey="=1" />
+      <zeebe:subscription correlationKey="=&#34;&#34;" />
     </bpmn:extensionElements>
   </bpmn:message>
   <bpmn:message id="Message_0i4pr24" name="MessageGetProofResult">
