@@ -283,7 +283,7 @@
       </bpmn:extensionElements>
       <bpmn:incoming>Flow_1m6ompe</bpmn:incoming>
       <bpmn:outgoing>Flow_12x6mrq</bpmn:outgoing>
-      <bpmn:messageEventDefinition id="MessageEventDefinition_0hli6c6" messageRef="Message_2epjvge" />
+      <bpmn:messageEventDefinition id="MessageEventDefinition_0hli6c6" messageRef="Message_0ua037i" />
     </bpmn:intermediateCatchEvent>
     <bpmn:intermediateCatchEvent id="Event_1txzx7i" name="Дело возвращено прокурором">
       <bpmn:outgoing>Flow_1hwg1iv</bpmn:outgoing>
@@ -620,7 +620,7 @@
       <bpmn:extensionElements>
         <zeebe:taskDefinition type="io.camunda:sendMessage:1" retries="3" />
         <zeebe:ioMapping>
-          <zeebe:input source="MessageFinishProsecutor" target="messageName" />
+          <zeebe:input source="MessageFinishProsecutor2" target="messageName" />
           <zeebe:input source="&#34;&#34;" target="correlationKey" />
           <zeebe:input source="publish" target="correlationType.type" />
           <zeebe:input source="PT0S" target="correlationType.timeToLive" />
@@ -638,7 +638,7 @@
       <bpmn:extensionElements>
         <zeebe:taskDefinition type="io.camunda:sendMessage:1" retries="3" />
         <zeebe:ioMapping>
-          <zeebe:input source="MessageFinishInvestigation" target="messageName" />
+          <zeebe:input source="MessageFinishInvestigation2" target="messageName" />
           <zeebe:input source="&#34;&#34;" target="correlationKey" />
           <zeebe:input source="publish" target="correlationType.type" />
           <zeebe:input source="PT0S" target="correlationType.timeToLive" />
@@ -1084,7 +1084,7 @@
     <bpmn:intermediateCatchEvent id="Event_1ei3nq5" name="Дело будет рассмотрено в суде">
       <bpmn:incoming>Flow_1pmxqk9</bpmn:incoming>
       <bpmn:outgoing>Flow_01zp64c</bpmn:outgoing>
-      <bpmn:messageEventDefinition id="MessageEventDefinition_13bloqf" messageRef="Message_3aqu9me" />
+      <bpmn:messageEventDefinition id="MessageEventDefinition_13bloqf" messageRef="Message_1ib6uk2" />
     </bpmn:intermediateCatchEvent>
     <bpmn:intermediateThrowEvent id="Event_0d2dyq0" name="Дело возвращено следователю" zeebe:modelerTemplate="io.camunda.connectors.message.intermediate.v1" zeebe:modelerTemplateVersion="0" zeebe:modelerTemplateIcon="data:image/svg+xml;base64,PHN2ZwogICB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciCiAgIHdpZHRoPSIyMDAwIgogICBoZWlnaHQ9IjIwMDAiCiAgIHZpZXdCb3g9IjAgMCAyMDAwIDIwMDAiCiAgIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaWRZTWlkIj4KICA8cGF0aAogICAgIHN0eWxlPSJjb2xvcjojMDAwMDAwIgogICAgIGQ9Im0gMCwyODQgMjAwMCwwIC0xMDAwLDU1NCB6Ii8+CiAgPHBhdGgKICAgICBzdHlsZT0iY29sb3I6IzAwMDAwMCIKICAgICBkPSJtIDAsNDUyIDEwMDAsNTQ4IDEwMDAsLTU0OCAwLDEwOTYgLTIwMDAsMCB6Ii8+Cjwvc3ZnPgo=">
       <bpmn:extensionElements>
@@ -1123,7 +1123,7 @@
       <bpmn:outgoing>Flow_1pmxqk9</bpmn:outgoing>
       <bpmn:messageEventDefinition id="MessageEventDefinition_08f7r28" />
     </bpmn:intermediateThrowEvent>
-    <bpmn:startEvent id="Event_0v83fho" name="Заключение получкно">
+    <bpmn:startEvent id="Event_0v83fho" name="Заключение получено">
       <bpmn:outgoing>Flow_1mfdxbp</bpmn:outgoing>
       <bpmn:messageEventDefinition id="MessageEventDefinition_0xxf8z3" messageRef="Message_1t8r7ss" />
     </bpmn:startEvent>
@@ -1232,6 +1232,16 @@
     </bpmn:extensionElements>
   </bpmn:message>
   <bpmn:message id="Message_0i4pr24" name="MessageGetProofResult">
+    <bpmn:extensionElements>
+      <zeebe:subscription correlationKey="=&#34;&#34;" />
+    </bpmn:extensionElements>
+  </bpmn:message>
+  <bpmn:message id="Message_1ib6uk2" name="MessageFinishProsecutor2">
+    <bpmn:extensionElements>
+      <zeebe:subscription correlationKey="=&#34;&#34;" />
+    </bpmn:extensionElements>
+  </bpmn:message>
+  <bpmn:message id="Message_0ua037i" name="MessageFinishInvestigation2">
     <bpmn:extensionElements>
       <zeebe:subscription correlationKey="=&#34;&#34;" />
     </bpmn:extensionElements>
