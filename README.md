@@ -1,7 +1,9 @@
 Ссылки
 
-- http://localhost:8088/tasklist/login
-- http://localhost:8088/operate/login
+- http://localhost:8088/tasklist
+- http://localhost:8088/operate
+- http://localhost:8088/broker
+- http://localhost:8088/identity
 
 docker compose down -v --remove-orphans
 
@@ -12,3 +14,4 @@ docker compose logs -f
 TODO:
 1. Починить связь
 2. Убрать везде messageId
+3. Проверить, что DMN переменные инициализируются
