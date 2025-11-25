@@ -18,31 +18,46 @@
         </inputExpression>
       </input>
       <output id="Output_1" label="Решение" name="shouldStartInvestigation" typeRef="number" />
-      <rule id="DecisionRule_0ylf3rd">
+      <rule id="DecisionRule_09c9rm3">
+        <description>debug</description>
+        <inputEntry id="UnaryTests_1fq7myz">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0wnx4ww">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1qxp3pq">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0j6k5nk">
+          <text>3</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0tycb9l">
         <description>Прекратить дело</description>
-        <inputEntry id="UnaryTests_1tccjbd">
+        <inputEntry id="UnaryTests_15kwr2g">
           <text></text>
         </inputEntry>
-        <inputEntry id="UnaryTests_1yh9g21">
+        <inputEntry id="UnaryTests_1c8n1vs">
           <text></text>
         </inputEntry>
-        <inputEntry id="UnaryTests_1i528nm">
+        <inputEntry id="UnaryTests_0drge4j">
           <text>false</text>
         </inputEntry>
-        <outputEntry id="LiteralExpression_0qfbavk">
+        <outputEntry id="LiteralExpression_1ktx2xy">
           <text>1</text>
         </outputEntry>
       </rule>
       <rule id="DecisionRule_1kpwqde">
         <description>Приостановить расследование</description>
         <inputEntry id="UnaryTests_1v68wrj">
-          <text>&lt; 40</text>
+          <text>&lt; 10</text>
         </inputEntry>
         <inputEntry id="UnaryTests_16g8j7x">
           <text></text>
         </inputEntry>
         <inputEntry id="UnaryTests_1fpj8e8">
-          <text>true</text>
+          <text>-</text>
         </inputEntry>
         <outputEntry id="LiteralExpression_01vp4a0">
           <text>2</text>
@@ -51,10 +66,10 @@
       <rule id="DecisionRule_0ga9nwi">
         <description>Приостановить расследование</description>
         <inputEntry id="UnaryTests_19h0yod">
-          <text>[40..100]</text>
+          <text>[10..20]</text>
         </inputEntry>
         <inputEntry id="UnaryTests_11m507a">
-          <text>true</text>
+          <text>-</text>
         </inputEntry>
         <inputEntry id="UnaryTests_1yod6om">
           <text>true</text>
@@ -63,19 +78,64 @@
           <text>2</text>
         </outputEntry>
       </rule>
+      <rule id="DecisionRule_1h6pzam">
+        <description>Приостановить расследование</description>
+        <inputEntry id="UnaryTests_0b6o90p">
+          <text>&lt; 20</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0m192no">
+          <text>-</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0oxa5y1">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1h6jtik">
+          <text>2</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_044rrga">
+        <description>Приостановить расследование</description>
+        <inputEntry id="UnaryTests_1pcdnyt">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_03bk22w">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1u5dujl">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_143fzb4">
+          <text>2</text>
+        </outputEntry>
+      </rule>
       <rule id="DecisionRule_0tynmgd">
         <description>Составить обвинительное заключение</description>
         <inputEntry id="UnaryTests_1fzo70c">
-          <text>&gt;= 70</text>
+          <text>&gt;= 20</text>
         </inputEntry>
         <inputEntry id="UnaryTests_0ldcln6">
-          <text>false</text>
+          <text>true</text>
         </inputEntry>
         <inputEntry id="UnaryTests_0dyx95f">
           <text>true</text>
         </inputEntry>
         <outputEntry id="LiteralExpression_0uo3m3a">
           <text>3</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0vk7nks">
+        <description>Прекратить дело</description>
+        <inputEntry id="UnaryTests_0zn5hal">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1uwtgxg">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0tbf8l1">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1yvjxsl">
+          <text>1</text>
         </outputEntry>
       </rule>
     </decisionTable>

@@ -238,7 +238,7 @@
     </bpmn:sequenceFlow>
     <bpmn:sequenceFlow id="Flow_1t3z5a8" sourceRef="Activity_0j4slwh" targetRef="Activity_0op0nfm" />
     <bpmn:sequenceFlow id="Flow_1xyzzah" sourceRef="Activity_0de32lv" targetRef="Gateway_0ov0kyg" />
-    <bpmn:parallelGateway id="Gateway_0r8mwy6">
+    <bpmn:parallelGateway id="Gateway_0r8mwy6" name="Разделение членов СОГ">
       <bpmn:incoming>Flow_1f8t7f8</bpmn:incoming>
       <bpmn:outgoing>Flow_0oq0jsq</bpmn:outgoing>
       <bpmn:outgoing>Flow_04946i6</bpmn:outgoing>
@@ -639,7 +639,9 @@
         <zeebe:taskDefinition type="io.camunda:sendMessage:1" retries="3" />
         <zeebe:ioMapping>
           <zeebe:input source="MessageFinishInvestigation" target="messageName" />
+          <zeebe:input source="&#34;&#34;" target="correlationKey" />
           <zeebe:input source="publish" target="correlationType.type" />
+          <zeebe:input source="PT0S" target="correlationType.timeToLive" />
         </zeebe:ioMapping>
         <zeebe:taskHeaders>
           <zeebe:header key="elementTemplateVersion" value="0" />
@@ -1357,6 +1359,9 @@
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Gateway_0r8mwy6_di" bpmnElement="Gateway_0r8mwy6">
         <dc:Bounds x="805" y="475" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="719" y="490" width="62" height="27" />
+        </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Gateway_0y6mxsf_di" bpmnElement="Gateway_0y6mxsf">
         <dc:Bounds x="1795" y="585" width="50" height="50" />
