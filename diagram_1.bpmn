@@ -480,7 +480,6 @@
           <zeebe:input source="&#34;&#34;" target="correlationKey" />
           <zeebe:input source="publish" target="correlationType.type" />
           <zeebe:input source="PT0S" target="correlationType.timeToLive" />
-          <zeebe:input source="Message_07jdtfe" target="correlationType.messageId" />
         </zeebe:ioMapping>
         <zeebe:taskHeaders>
           <zeebe:header key="elementTemplateVersion" value="0" />
@@ -641,7 +640,6 @@
         <zeebe:ioMapping>
           <zeebe:input source="MessageFinishInvestigation" target="messageName" />
           <zeebe:input source="publish" target="correlationType.type" />
-          <zeebe:input source="Message_2epjvge" target="correlationType.messageId" />
         </zeebe:ioMapping>
         <zeebe:taskHeaders>
           <zeebe:header key="elementTemplateVersion" value="0" />
@@ -859,7 +857,6 @@
         <zeebe:ioMapping>
           <zeebe:input source="MessageHasBeenPunished" target="messageName" />
           <zeebe:input source="publish" target="correlationType.type" />
-          <zeebe:input source="Message_3uico41" target="correlationType.messageId" />
         </zeebe:ioMapping>
         <zeebe:taskHeaders>
           <zeebe:header key="elementTemplateVersion" value="0" />
@@ -1049,7 +1046,6 @@
           <zeebe:input source="&#34;&#34;" target="correlationKey" />
           <zeebe:input source="publish" target="correlationType.type" />
           <zeebe:input source="PT0S" target="correlationType.timeToLive" />
-          <zeebe:input source="Message_3jdf49i" target="correlationType.messageId" />
         </zeebe:ioMapping>
         <zeebe:taskHeaders>
           <zeebe:header key="elementTemplateVersion" value="0" />
