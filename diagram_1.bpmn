@@ -346,21 +346,21 @@
     <bpmn:sequenceFlow id="Flow_1fi3yg9" name="Нет" sourceRef="Gateway_1itciaw" targetRef="Activity_0tj4opf">
       <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=needAdditionalActionsPercent &gt;= 10</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
-    <bpmn:scriptTask id="Activity_0apx41w" name="Определение условия">
+    <bpmn:scriptTask id="Activity_0apx41w" name="Определение условия shouldStartCasePercent">
       <bpmn:extensionElements>
         <zeebe:script expression="=floor(random number() * 100) + 1" resultVariable="shouldStartCasePercent" />
       </bpmn:extensionElements>
       <bpmn:incoming>Flow_1547x4b</bpmn:incoming>
       <bpmn:outgoing>Flow_0pdqkx0</bpmn:outgoing>
     </bpmn:scriptTask>
-    <bpmn:scriptTask id="Activity_0de32lv" name="Определение условия">
+    <bpmn:scriptTask id="Activity_0de32lv" name="Определение условия isAdditionalActionAreaRestrictionPercent">
       <bpmn:extensionElements>
         <zeebe:script expression="=floor(random number() * 100) + 1" resultVariable="isAdditionalActionAreaRestrictionPercent" />
       </bpmn:extensionElements>
       <bpmn:incoming>Flow_01gt00k</bpmn:incoming>
       <bpmn:outgoing>Flow_1xyzzah</bpmn:outgoing>
     </bpmn:scriptTask>
-    <bpmn:scriptTask id="Activity_14284eo" name="Определение условия">
+    <bpmn:scriptTask id="Activity_14284eo" name="Определение условия needAdditionalActionsPercent">
       <bpmn:extensionElements>
         <zeebe:script expression="=floor(random number() * 100) + 1" resultVariable="needAdditionalActionsPercent" />
       </bpmn:extensionElements>
@@ -368,14 +368,14 @@
       <bpmn:incoming>Flow_0g8foh2</bpmn:incoming>
       <bpmn:outgoing>Flow_19xzgkh</bpmn:outgoing>
     </bpmn:scriptTask>
-    <bpmn:scriptTask id="Activity_1f38z0p" name="Определение условия">
+    <bpmn:scriptTask id="Activity_1f38z0p" name="Определение условия needAdditionalActionsPercent">
       <bpmn:extensionElements>
         <zeebe:script expression="=floor(random number() * 100) + 1" resultVariable="needAdditionalActionsPercent" />
       </bpmn:extensionElements>
       <bpmn:incoming>Flow_0fq1q6p</bpmn:incoming>
       <bpmn:outgoing>Flow_0oal8sj</bpmn:outgoing>
     </bpmn:scriptTask>
-    <bpmn:scriptTask id="Activity_08xf5ul" name="Определение условия">
+    <bpmn:scriptTask id="Activity_08xf5ul" name="Определение условия needAdditionalActionsPercent">
       <bpmn:extensionElements>
         <zeebe:script expression="=floor(random number() * 100) + 1" resultVariable="needAdditionalActionsPercent" />
         <zeebe:ioMapping>
@@ -391,7 +391,7 @@
       <bpmn:incoming>Flow_0oq0jsq</bpmn:incoming>
       <bpmn:outgoing>Flow_0crcrd7</bpmn:outgoing>
     </bpmn:task>
-    <bpmn:endEvent id="Event_0f6eeve" name="Отказ">
+    <bpmn:endEvent id="Event_0f6eeve" name="Отказ в возбуждении дела">
       <bpmn:incoming>Flow_1b00w1m</bpmn:incoming>
     </bpmn:endEvent>
     <bpmn:intermediateCatchEvent id="Event_015bdwj" name="Получены результаты экспертизы">
@@ -775,7 +775,7 @@
       <bpmn:incoming>Flow_1m6qvqc</bpmn:incoming>
       <bpmn:outgoing>Flow_09rn3hg</bpmn:outgoing>
     </bpmn:exclusiveGateway>
-    <bpmn:exclusiveGateway id="Gateway_0e1zk0r" name="Тип приговора">
+    <bpmn:exclusiveGateway id="Gateway_0e1zk0r" name="Тип приговора СПИ">
       <bpmn:incoming>Flow_0k7r367</bpmn:incoming>
       <bpmn:outgoing>Flow_02m1k3j</bpmn:outgoing>
       <bpmn:outgoing>Flow_1h96uts</bpmn:outgoing>
@@ -795,7 +795,7 @@
       <bpmn:incoming>Flow_00xh51t</bpmn:incoming>
       <bpmn:outgoing>Flow_13mtniv</bpmn:outgoing>
     </bpmn:exclusiveGateway>
-    <bpmn:exclusiveGateway id="Gateway_135i94q" name="Тип приговора">
+    <bpmn:exclusiveGateway id="Gateway_135i94q" name="Тип приговора АС">
       <bpmn:incoming>Flow_1t1rjle</bpmn:incoming>
       <bpmn:outgoing>Flow_00m42qu</bpmn:outgoing>
       <bpmn:outgoing>Flow_0x3qozr</bpmn:outgoing>
@@ -805,18 +805,18 @@
       <bpmn:incoming>Flow_0g0j7fr</bpmn:incoming>
       <bpmn:outgoing>Flow_0jxsn3y</bpmn:outgoing>
     </bpmn:exclusiveGateway>
-    <bpmn:exclusiveGateway id="Gateway_1icstes">
+    <bpmn:exclusiveGateway id="Gateway_1icstes" name="Решение СПИ после предварительного слушания">
       <bpmn:incoming>Flow_1bffpjt</bpmn:incoming>
       <bpmn:outgoing>Flow_02qq6j3</bpmn:outgoing>
       <bpmn:outgoing>Flow_0t4ocpc</bpmn:outgoing>
       <bpmn:outgoing>Flow_1laatxg</bpmn:outgoing>
     </bpmn:exclusiveGateway>
-    <bpmn:exclusiveGateway id="Gateway_1luz9vu">
+    <bpmn:exclusiveGateway id="Gateway_1luz9vu" name="Тип приговора ВС">
       <bpmn:incoming>Flow_02j2jw2</bpmn:incoming>
       <bpmn:outgoing>Flow_0jlikew</bpmn:outgoing>
       <bpmn:outgoing>Flow_1wv6syx</bpmn:outgoing>
     </bpmn:exclusiveGateway>
-    <bpmn:exclusiveGateway id="Gateway_1t4x9gx" name="Тип приговора">
+    <bpmn:exclusiveGateway id="Gateway_1t4x9gx" name="Тип приговора КС">
       <bpmn:incoming>Flow_0j0yv57</bpmn:incoming>
       <bpmn:outgoing>Flow_1a8kawj</bpmn:outgoing>
       <bpmn:outgoing>Flow_01ya0x3</bpmn:outgoing>
@@ -832,19 +832,19 @@
       <bpmn:incoming>Flow_09rn3hg</bpmn:incoming>
       <bpmn:outgoing>Flow_1k7rerh</bpmn:outgoing>
     </bpmn:intermediateThrowEvent>
-    <bpmn:task id="Activity_0z7fx4y" name="Вынесение приговора">
+    <bpmn:task id="Activity_0z7fx4y" name="Вынесение приговора СПИ">
       <bpmn:incoming>Flow_1yy3j5b</bpmn:incoming>
       <bpmn:outgoing>Flow_15mci00</bpmn:outgoing>
     </bpmn:task>
-    <bpmn:task id="Activity_1pjetmd" name="Вынесение приговора">
+    <bpmn:task id="Activity_1pjetmd" name="Вынесение приговора КС">
       <bpmn:incoming>Flow_19wt26p</bpmn:incoming>
       <bpmn:outgoing>Flow_1ss8w4a</bpmn:outgoing>
     </bpmn:task>
-    <bpmn:task id="Activity_156k387" name="Вынесение приговора">
+    <bpmn:task id="Activity_156k387" name="Вынесение приговора ВС">
       <bpmn:incoming>Flow_1fxx161</bpmn:incoming>
       <bpmn:outgoing>Flow_0cojyqj</bpmn:outgoing>
     </bpmn:task>
-    <bpmn:task id="Activity_0qya27l" name="Вынесение приговора">
+    <bpmn:task id="Activity_0qya27l" name="Вынесение приговора АС">
       <bpmn:incoming>Flow_1f0r7ez</bpmn:incoming>
       <bpmn:outgoing>Flow_1stlhkm</bpmn:outgoing>
     </bpmn:task>
@@ -873,15 +873,15 @@
       <bpmn:outgoing>Flow_1a8kw6q</bpmn:outgoing>
       <bpmn:messageEventDefinition id="MessageEventDefinition_1r4vcmp" messageRef="Message_1jbkp34" />
     </bpmn:startEvent>
-    <bpmn:intermediateThrowEvent id="Event_0fg1y7n" name="Изменить решение нижестоящего суда">
+    <bpmn:intermediateThrowEvent id="Event_0fg1y7n" name="Изменить решение нижестоящего суда СПИ">
       <bpmn:incoming>Flow_00m42qu</bpmn:incoming>
       <bpmn:outgoing>Flow_0omzhs2</bpmn:outgoing>
     </bpmn:intermediateThrowEvent>
-    <bpmn:intermediateThrowEvent id="Event_1b8kv7o" name="Изменить решение нижестоящего суда">
+    <bpmn:intermediateThrowEvent id="Event_1b8kv7o" name="Изменить решение нижестоящего суда АС">
       <bpmn:incoming>Flow_01ya0x3</bpmn:incoming>
       <bpmn:outgoing>Flow_00xh51t</bpmn:outgoing>
     </bpmn:intermediateThrowEvent>
-    <bpmn:intermediateThrowEvent id="Event_00atdr9" name="Изменить решение нижестоящего суда">
+    <bpmn:intermediateThrowEvent id="Event_00atdr9" name="Изменить решение нижестоящего суда КС">
       <bpmn:incoming>Flow_1wv6syx</bpmn:incoming>
       <bpmn:outgoing>Flow_1m6qvqc</bpmn:outgoing>
     </bpmn:intermediateThrowEvent>
@@ -889,101 +889,101 @@
       <bpmn:incoming>Flow_1laatxg</bpmn:incoming>
       <bpmn:outgoing>Flow_17920l9</bpmn:outgoing>
     </bpmn:task>
-    <bpmn:intermediateThrowEvent id="Event_0xqadzj" name="Обвинительный приговор">
+    <bpmn:intermediateThrowEvent id="Event_0xqadzj" name="Обвинительный приговор СПИ">
       <bpmn:incoming>Flow_02m1k3j</bpmn:incoming>
       <bpmn:outgoing>Flow_1yrplbg</bpmn:outgoing>
     </bpmn:intermediateThrowEvent>
     <bpmn:endEvent id="Event_12o2d1p" name="Обвиняемый оправдан">
       <bpmn:incoming>Flow_0rmecv7</bpmn:incoming>
     </bpmn:endEvent>
-    <bpmn:intermediateThrowEvent id="Event_12qy45f" name="Оправдательный приговор">
+    <bpmn:intermediateThrowEvent id="Event_12qy45f" name="Оправдательный приговор СПИ">
       <bpmn:incoming>Flow_1h96uts</bpmn:incoming>
       <bpmn:outgoing>Flow_0g0j7fr</bpmn:outgoing>
     </bpmn:intermediateThrowEvent>
-    <bpmn:scriptTask id="Activity_1w7gahx" name="Определение условия">
+    <bpmn:scriptTask id="Activity_1w7gahx" name="Определение условия shouldProcessCaseByCourtPercent">
       <bpmn:extensionElements>
         <zeebe:script expression="=floor(random number() * 100) + 1" resultVariable="shouldProcessCaseByCourtPercent" />
       </bpmn:extensionElements>
       <bpmn:incoming>Flow_1i8qfwy</bpmn:incoming>
       <bpmn:outgoing>Flow_1bffpjt</bpmn:outgoing>
     </bpmn:scriptTask>
-    <bpmn:scriptTask id="Activity_1c0tco3" name="Определение условия">
+    <bpmn:scriptTask id="Activity_1c0tco3" name="Определение условия firstCourtDecisionPercent">
       <bpmn:extensionElements>
         <zeebe:script expression="=floor(random number() * 100) + 1" resultVariable="firstCourtDecisionPercent" />
       </bpmn:extensionElements>
       <bpmn:incoming>Flow_15mci00</bpmn:incoming>
       <bpmn:outgoing>Flow_0k7r367</bpmn:outgoing>
     </bpmn:scriptTask>
-    <bpmn:scriptTask id="Activity_0cyqxp9" name="Определение условия">
+    <bpmn:scriptTask id="Activity_0cyqxp9" name="Определение условия firstCourtDecisionHasBeenAppealedPercent">
       <bpmn:extensionElements>
         <zeebe:script expression="=floor(random number() * 100) + 1" resultVariable="firstCourtDecisionHasBeenAppealedPercent" />
       </bpmn:extensionElements>
       <bpmn:incoming>Flow_0jxsn3y</bpmn:incoming>
       <bpmn:outgoing>Flow_0iluk6g</bpmn:outgoing>
     </bpmn:scriptTask>
-    <bpmn:scriptTask id="Activity_0rr1f0l" name="Определение условия">
+    <bpmn:scriptTask id="Activity_0rr1f0l" name="Определение условия secondCourtDecisionPercent">
       <bpmn:extensionElements>
         <zeebe:script expression="=floor(random number() * 100) + 1" resultVariable="secondCourtDecisionPercent" />
       </bpmn:extensionElements>
       <bpmn:incoming>Flow_1stlhkm</bpmn:incoming>
       <bpmn:outgoing>Flow_1t1rjle</bpmn:outgoing>
     </bpmn:scriptTask>
-    <bpmn:scriptTask id="Activity_0plk0cc" name="Определение условия">
+    <bpmn:scriptTask id="Activity_0plk0cc" name="Определение условия secondCourtDecisionHasBeenAppealedPercent">
       <bpmn:extensionElements>
         <zeebe:script expression="=floor(random number() * 100) + 1" resultVariable="secondCourtDecisionHasBeenAppealedPercent" />
       </bpmn:extensionElements>
       <bpmn:incoming>Flow_1d0b4or</bpmn:incoming>
       <bpmn:outgoing>Flow_0b1449z</bpmn:outgoing>
     </bpmn:scriptTask>
-    <bpmn:scriptTask id="Activity_1audnjb" name="Определение условия">
+    <bpmn:scriptTask id="Activity_1audnjb" name="Определение условия thirdCourtDecisionHasBeenAppealedPercent">
       <bpmn:extensionElements>
         <zeebe:script expression="=floor(random number() * 100) + 1" resultVariable="thirdCourtDecisionHasBeenAppealedPercent" />
       </bpmn:extensionElements>
       <bpmn:incoming>Flow_1ss8w4a</bpmn:incoming>
       <bpmn:outgoing>Flow_0j0yv57</bpmn:outgoing>
     </bpmn:scriptTask>
-    <bpmn:scriptTask id="Activity_1quuh8m" name="Определение условия">
+    <bpmn:scriptTask id="Activity_1quuh8m" name="Определение условия thirdCourtDecisionHasBeenAppealedPercent">
       <bpmn:extensionElements>
         <zeebe:script expression="=floor(random number() * 100) + 1" resultVariable="thirdCourtDecisionHasBeenAppealedPercent" />
       </bpmn:extensionElements>
       <bpmn:incoming>Flow_13mtniv</bpmn:incoming>
       <bpmn:outgoing>Flow_00lmemo</bpmn:outgoing>
     </bpmn:scriptTask>
-    <bpmn:scriptTask id="Activity_03aeq3b" name="Определение условия">
+    <bpmn:scriptTask id="Activity_03aeq3b" name="Определение условия supremeCourtDecisionHasBeenAppealedPercent">
       <bpmn:extensionElements>
         <zeebe:script expression="=floor(random number() * 100) + 1" resultVariable="supremeCourtDecisionHasBeenAppealedPercent" />
       </bpmn:extensionElements>
       <bpmn:incoming>Flow_0cojyqj</bpmn:incoming>
       <bpmn:outgoing>Flow_02j2jw2</bpmn:outgoing>
     </bpmn:scriptTask>
-    <bpmn:scriptTask id="Activity_1bc3kha" name="Определение условия">
+    <bpmn:scriptTask id="Activity_1bc3kha" name="Определение условия suspectHasBeenPunishedPercent">
       <bpmn:extensionElements>
         <zeebe:script expression="=floor(random number() * 100) + 1" resultVariable="suspectHasBeenPunishedPercent" />
       </bpmn:extensionElements>
       <bpmn:incoming>Flow_1k7rerh</bpmn:incoming>
       <bpmn:outgoing>Flow_1mnp5t4</bpmn:outgoing>
     </bpmn:scriptTask>
-    <bpmn:intermediateThrowEvent id="Event_1nl4qnq" name="Оставить решение в силе">
+    <bpmn:intermediateThrowEvent id="Event_1nl4qnq" name="Оставить решение в силе СПИ">
       <bpmn:incoming>Flow_0x3qozr</bpmn:incoming>
       <bpmn:outgoing>Flow_0fhmwvd</bpmn:outgoing>
     </bpmn:intermediateThrowEvent>
-    <bpmn:intermediateThrowEvent id="Event_0kav9ld" name="Оставить решение в силе">
+    <bpmn:intermediateThrowEvent id="Event_0kav9ld" name="Оставить решение в силе АС">
       <bpmn:incoming>Flow_1a8kawj</bpmn:incoming>
       <bpmn:outgoing>Flow_1cfw8ju</bpmn:outgoing>
     </bpmn:intermediateThrowEvent>
-    <bpmn:intermediateThrowEvent id="Event_06yeufk" name="Оставить решение в силе">
+    <bpmn:intermediateThrowEvent id="Event_06yeufk" name="Оставить решение в силе КС">
       <bpmn:incoming>Flow_0jlikew</bpmn:incoming>
       <bpmn:outgoing>Flow_1u1mtpi</bpmn:outgoing>
     </bpmn:intermediateThrowEvent>
-    <bpmn:intermediateThrowEvent id="Event_14yn4c6" name="Подана жалоба">
+    <bpmn:intermediateThrowEvent id="Event_14yn4c6" name="Подана жалоба в АС">
       <bpmn:incoming>Flow_167ry4u</bpmn:incoming>
       <bpmn:outgoing>Flow_09gbhf3</bpmn:outgoing>
     </bpmn:intermediateThrowEvent>
-    <bpmn:intermediateThrowEvent id="Event_0ilyos4" name="Подана жалоба">
+    <bpmn:intermediateThrowEvent id="Event_0ilyos4" name="Подана жалоба в КС">
       <bpmn:incoming>Flow_16q505f</bpmn:incoming>
       <bpmn:outgoing>Flow_0pd650m</bpmn:outgoing>
     </bpmn:intermediateThrowEvent>
-    <bpmn:intermediateThrowEvent id="Event_1c0yw0y" name="Подана жалоба">
+    <bpmn:intermediateThrowEvent id="Event_1c0yw0y" name="Подана жалоба в ВС">
       <bpmn:incoming>Flow_1l6a88m</bpmn:incoming>
       <bpmn:outgoing>Flow_1k7gbth</bpmn:outgoing>
     </bpmn:intermediateThrowEvent>
@@ -1000,36 +1000,36 @@
       <bpmn:incoming>Flow_0t4ocpc</bpmn:incoming>
       <bpmn:outgoing>Flow_1gkh79t</bpmn:outgoing>
     </bpmn:task>
-    <bpmn:exclusiveGateway id="Gateway_1b8tg46" name="Решение обжаловано">
+    <bpmn:exclusiveGateway id="Gateway_1b8tg46" name="Решение обжаловано СПИ">
       <bpmn:incoming>Flow_0iluk6g</bpmn:incoming>
       <bpmn:outgoing>Flow_03bior9</bpmn:outgoing>
       <bpmn:outgoing>Flow_167ry4u</bpmn:outgoing>
     </bpmn:exclusiveGateway>
-    <bpmn:exclusiveGateway id="Gateway_0kn4ff6" name="Решение обжаловано">
+    <bpmn:exclusiveGateway id="Gateway_0kn4ff6" name="Решение обжаловано АС">
       <bpmn:incoming>Flow_0b1449z</bpmn:incoming>
       <bpmn:outgoing>Flow_1fl2rzc</bpmn:outgoing>
       <bpmn:outgoing>Flow_16q505f</bpmn:outgoing>
     </bpmn:exclusiveGateway>
-    <bpmn:exclusiveGateway id="Gateway_0c3p6y0" name="Решение обжаловано">
+    <bpmn:exclusiveGateway id="Gateway_0c3p6y0" name="Решение обжаловано КС">
       <bpmn:incoming>Flow_00lmemo</bpmn:incoming>
       <bpmn:outgoing>Flow_1l6a88m</bpmn:outgoing>
       <bpmn:outgoing>Flow_1yxvlh5</bpmn:outgoing>
     </bpmn:exclusiveGateway>
-    <bpmn:task id="Activity_0p7s2rq" name="Судебное заседание">
+    <bpmn:task id="Activity_0p7s2rq" name="Судебное заседание СПИ">
       <bpmn:incoming>Flow_0ps8yes</bpmn:incoming>
       <bpmn:outgoing>Flow_1yy3j5b</bpmn:outgoing>
       <bpmn:outgoing>Flow_1pln1vn</bpmn:outgoing>
       <bpmn:outgoing>Flow_0wx4ilp</bpmn:outgoing>
     </bpmn:task>
-    <bpmn:task id="Activity_15wyvg2" name="Судебное заседание">
+    <bpmn:task id="Activity_15wyvg2" name="Судебное заседание КС">
       <bpmn:incoming>Flow_0pd650m</bpmn:incoming>
       <bpmn:outgoing>Flow_19wt26p</bpmn:outgoing>
     </bpmn:task>
-    <bpmn:task id="Activity_1onqc94" name="Судебное заседание">
+    <bpmn:task id="Activity_1onqc94" name="Судебное заседание ВС">
       <bpmn:incoming>Flow_1k7gbth</bpmn:incoming>
       <bpmn:outgoing>Flow_1fxx161</bpmn:outgoing>
     </bpmn:task>
-    <bpmn:task id="Activity_10mg6pm" name="Судебное заседание">
+    <bpmn:task id="Activity_10mg6pm" name="Судебное заседание АС">
       <bpmn:incoming>Flow_09gbhf3</bpmn:incoming>
       <bpmn:outgoing>Flow_1f0r7ez</bpmn:outgoing>
     </bpmn:task>
@@ -1131,7 +1131,7 @@
       <bpmn:incoming>Flow_02n3rkg</bpmn:incoming>
       <bpmn:outgoing>Flow_0pnkadb</bpmn:outgoing>
     </bpmn:task>
-    <bpmn:scriptTask id="Activity_03635ps" name="Определение условия">
+    <bpmn:scriptTask id="Activity_03635ps" name="Определение условия hasEnoughProvesPercent">
       <bpmn:extensionElements>
         <zeebe:script expression="=floor(random number() * 100) + 1" resultVariable="hasEnoughProvesPercent" />
       </bpmn:extensionElements>
@@ -1177,24 +1177,24 @@
     <bpmn:endEvent id="Event_0iffybe" name="Заключенный отбывает наказание">
       <bpmn:incoming>Flow_1fbucug</bpmn:incoming>
     </bpmn:endEvent>
-    <bpmn:task id="Activity_1xyu1v5" name="Исполнение приговора">
-      <bpmn:incoming>Flow_0nrd7tv</bpmn:incoming>
-      <bpmn:outgoing>Flow_02omtvw</bpmn:outgoing>
-    </bpmn:task>
     <bpmn:task id="Activity_0xloslw" name="Направление заключенного в места лишения свободы">
       <bpmn:incoming>Flow_18oa69y</bpmn:incoming>
       <bpmn:outgoing>Flow_1fbucug</bpmn:outgoing>
     </bpmn:task>
-    <bpmn:scriptTask id="Activity_1t2myuh" name="Определение условия">
+    <bpmn:endEvent id="Event_07y2ktn" name="Приговор исполнен">
+      <bpmn:incoming>Flow_13csy16</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:task id="Activity_1xyu1v5" name="Исполнение приговора">
+      <bpmn:incoming>Flow_0nrd7tv</bpmn:incoming>
+      <bpmn:outgoing>Flow_02omtvw</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:scriptTask id="Activity_1t2myuh" name="Определение условия isAreaRestrictionDecisionPercent">
       <bpmn:extensionElements>
         <zeebe:script expression="=floor(random number() * 100) + 1" resultVariable="isAreaRestrictionDecisionPercent" />
       </bpmn:extensionElements>
       <bpmn:incoming>Flow_02omtvw</bpmn:incoming>
       <bpmn:outgoing>Flow_1hfowkx</bpmn:outgoing>
     </bpmn:scriptTask>
-    <bpmn:endEvent id="Event_07y2ktn" name="Приговор исполнен">
-      <bpmn:incoming>Flow_13csy16</bpmn:incoming>
-    </bpmn:endEvent>
   </bpmn:process>
   <bpmn:message id="Message_0ftsso4" name="MessageComplain" />
   <bpmn:message id="Message_1739jtf" name="MessageSendGroup" />
@@ -1475,7 +1475,7 @@
       <bpmndi:BPMNShape id="Event_0f6eeve_di" bpmnElement="Event_0f6eeve">
         <dc:Bounds x="2082" y="512" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="2084" y="488" width="31" height="14" />
+          <dc:Bounds x="2067" y="488" width="67" height="40" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Event_015bdwj_di" bpmnElement="Event_015bdwj">
@@ -1920,7 +1920,7 @@
       <bpmndi:BPMNShape id="Gateway_0e1zk0r_di" bpmnElement="Gateway_0e1zk0r" isMarkerVisible="true">
         <dc:Bounds x="5085" y="1885" width="50" height="50" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="5133" y="1900" width="74" height="14" />
+          <dc:Bounds x="5133" y="1900" width="74" height="27" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="BPMNShape_0wi6tp4" bpmnElement="Gateway_0j6619a" isMarkerVisible="true">
@@ -1935,7 +1935,7 @@
       <bpmndi:BPMNShape id="Gateway_135i94q_di" bpmnElement="Gateway_135i94q" isMarkerVisible="true">
         <dc:Bounds x="5825" y="2205" width="50" height="50" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="5733" y="2220" width="74" height="14" />
+          <dc:Bounds x="5733" y="2220" width="74" height="27" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Gateway_178cfe4_di" bpmnElement="Gateway_178cfe4" isMarkerVisible="true">
@@ -1943,14 +1943,20 @@
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Gateway_1icstes_di" bpmnElement="Gateway_1icstes" isMarkerVisible="true">
         <dc:Bounds x="4435" y="1885" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="4388" y="1843" width="84" height="53" />
+        </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="BPMNShape_0ujr2vj" bpmnElement="Gateway_1luz9vu" isMarkerVisible="true">
         <dc:Bounds x="7335" y="2945" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="7313" y="2926" width="74" height="27" />
+        </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="BPMNShape_07t4inz" bpmnElement="Gateway_1t4x9gx" isMarkerVisible="true">
         <dc:Bounds x="6595" y="2545" width="50" height="50" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="6573" y="2523" width="74" height="14" />
+          <dc:Bounds x="6573" y="2523" width="74" height="27" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_0ib0idr_di" bpmnElement="Activity_0ib0idr">
@@ -2076,37 +2082,37 @@
       <bpmndi:BPMNShape id="BPMNShape_1qczb7j" bpmnElement="Event_1nl4qnq">
         <dc:Bounds x="5932" y="2252" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="5939" y="2295" width="82" height="27" />
+          <dc:Bounds x="5939" y="2295" width="82" height="40" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="BPMNShape_1ljm75n" bpmnElement="Event_0kav9ld">
         <dc:Bounds x="6702" y="2592" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="6709" y="2635" width="82" height="27" />
+          <dc:Bounds x="6709" y="2635" width="82" height="40" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="BPMNShape_1topy67" bpmnElement="Event_06yeufk">
         <dc:Bounds x="7442" y="2992" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="7449" y="3035" width="82" height="27" />
+          <dc:Bounds x="7449" y="3035" width="82" height="40" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Event_14yn4c6_di" bpmnElement="Event_14yn4c6">
         <dc:Bounds x="5472" y="1972" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="5449" y="1948" width="81" height="14" />
+          <dc:Bounds x="5445" y="1948" width="89" height="27" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="BPMNShape_1bygmk1" bpmnElement="Event_0ilyos4">
         <dc:Bounds x="6242" y="2182" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="6220" y="2225" width="81" height="14" />
+          <dc:Bounds x="6216" y="2225" width="89" height="27" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="BPMNShape_1ng4871" bpmnElement="Event_1c0yw0y">
         <dc:Bounds x="7002" y="2512" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="6979" y="2488" width="81" height="14" />
+          <dc:Bounds x="6975" y="2488" width="89" height="27" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Event_1yq9rgh_di" bpmnElement="Event_1yq9rgh">
@@ -2132,19 +2138,19 @@
       <bpmndi:BPMNShape id="Gateway_1b8tg46_di" bpmnElement="Gateway_1b8tg46" isMarkerVisible="true">
         <dc:Bounds x="5375" y="1875" width="50" height="50" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="5438" y="1856" width="63" height="27" />
+          <dc:Bounds x="5425" y="1856" width="90" height="27" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="BPMNShape_1bheoij" bpmnElement="Gateway_0kn4ff6" isMarkerVisible="true">
         <dc:Bounds x="6125" y="2185" width="50" height="50" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="6051.5" y="2196" width="63" height="27" />
+          <dc:Bounds x="6044" y="2196" width="81" height="27" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="BPMNShape_1h4xqzk" bpmnElement="Gateway_0c3p6y0" isMarkerVisible="true">
         <dc:Bounds x="6885" y="2515" width="50" height="50" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="6811.5" y="2526" width="63" height="27" />
+          <dc:Bounds x="6804" y="2526" width="80" height="27" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_0p7s2rq_di" bpmnElement="Activity_0p7s2rq">
@@ -2619,7 +2625,7 @@
       <bpmndi:BPMNShape id="BPMNShape_0cpmpdi" bpmnElement="Gateway_1867ve7" isMarkerVisible="true">
         <dc:Bounds x="8035" y="3345" width="50" height="50" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="7951" y="3343" width="74" height="53" />
+          <dc:Bounds x="8023" y="3283" width="74" height="53" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Event_0iffybe_di" bpmnElement="Event_0iffybe">
@@ -2628,16 +2634,8 @@
           <dc:Bounds x="8315" y="3395" width="71" height="40" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_1xyu1v5_di" bpmnElement="Activity_1xyu1v5">
-        <dc:Bounds x="7870" y="3330" width="100" height="80" />
-        <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_0xloslw_di" bpmnElement="Activity_0xloslw">
         <dc:Bounds x="8160" y="3330" width="100" height="80" />
-        <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="BPMNShape_1q022np" bpmnElement="Activity_1t2myuh">
-        <dc:Bounds x="7940" y="3210" width="100" height="80" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Event_07y2ktn_di" bpmnElement="Event_07y2ktn">
@@ -2646,17 +2644,21 @@
           <dc:Bounds x="8036" y="3545" width="49" height="27" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1xyu1v5_di" bpmnElement="Activity_1xyu1v5">
+        <dc:Bounds x="7860" y="3430" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_1q022np" bpmnElement="Activity_1t2myuh">
+        <dc:Bounds x="7860" y="3330" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Flow_02omtvw_di" bpmnElement="Flow_02omtvw">
-        <di:waypoint x="7920" y="3330" />
-        <di:waypoint x="7920" y="3310" />
-        <di:waypoint x="7940" y="3310" />
-        <di:waypoint x="7940" y="3280" />
+        <di:waypoint x="7910" y="3430" />
+        <di:waypoint x="7910" y="3410" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_0nrd7tv_di" bpmnElement="Flow_0nrd7tv">
         <di:waypoint x="7778" y="3470" />
-        <di:waypoint x="7824" y="3470" />
-        <di:waypoint x="7824" y="3370" />
-        <di:waypoint x="7870" y="3370" />
+        <di:waypoint x="7860" y="3470" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_13csy16_di" bpmnElement="Flow_13csy16">
         <di:waypoint x="8060" y="3395" />
@@ -2671,9 +2673,8 @@
         <di:waypoint x="8332" y="3370" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_1hfowkx_di" bpmnElement="Flow_1hfowkx">
-        <di:waypoint x="8040" y="3250" />
-        <di:waypoint x="8060" y="3250" />
-        <di:waypoint x="8060" y="3345" />
+        <di:waypoint x="7960" y="3370" />
+        <di:waypoint x="8035" y="3370" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="DataOutputAssociation_0vufmz5_di" bpmnElement="DataOutputAssociation_0vufmz5">
         <di:waypoint x="372" y="200" />
