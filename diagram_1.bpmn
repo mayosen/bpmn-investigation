@@ -46,7 +46,7 @@
     <bpmn:endEvent id="Event_1l9cvy3" name="Нет необходимости в направлении СОГ">
       <bpmn:incoming>Flow_1onyrqh</bpmn:incoming>
     </bpmn:endEvent>
-    <bpmn:scriptTask id="Activity_1hv4fqe" name="Определение условия">
+    <bpmn:scriptTask id="Activity_1hv4fqe" name="Определение условия shouldSendGroupPercent">
       <bpmn:extensionElements>
         <zeebe:script expression="=floor(random number() * 100) + 1" resultVariable="shouldSendGroupPercent" />
       </bpmn:extensionElements>
@@ -83,43 +83,43 @@
   <bpmn:process id="Process_Group" isExecutable="true">
     <bpmn:laneSet id="LaneSet_01i7y9t">
       <bpmn:lane id="Lane_029bf8x" name="Следователь">
+        <bpmn:flowNodeRef>Activity_0tj4opf</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Event_0d7x94y</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Event_0zj89qx</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Event_175q29e</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Event_1iv25i0</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_0r8mwy6</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_0y6mxsf</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Activity_1s3hcb4</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_1lh4fp4</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Activity_0j4slwh</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Activity_1sekyim</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Event_0j19mdh</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Event_1txzx7i</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Event_1vt0fhc</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Event_10a0n74</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Activity_1qivhwa</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Gateway_11pae59</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Gateway_0xqutnh</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Gateway_1itciaw</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_15dplxa</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_0apx41w</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_0de32lv</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_14284eo</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_1f38z0p</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_08xf5ul</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Activity_03myjr0</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Event_0f6eeve</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>Event_0ayuk08</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>Activity_1wghx47</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>Gateway_0ov0kyg</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>Gateway_0r8mwy6</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>Gateway_0y6mxsf</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Event_015bdwj</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Event_141gjtg</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Event_0aglzh9</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Gateway_1chd6p2</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>Activity_0iwdj8n</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>Activity_0tj4opf</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>Activity_1lh4fp4</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>Activity_0apx41w</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>Activity_0de32lv</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>Gateway_15dplxa</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Activity_0op0nfm</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>Activity_14284eo</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>Event_0d7x94y</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>Event_1iv25i0</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>Event_1vt0fhc</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Event_0ayuk08</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_0iwdj8n</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_1wghx47</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Event_0zfsedo</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>Event_10a0n74</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>Activity_1f38z0p</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>Event_175q29e</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>Event_0j19mdh</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>Event_0zj89qx</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>Activity_08xf5ul</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>Event_015bdwj</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_0ov0kyg</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Activity_0bhbhq2</bpmn:flowNodeRef>
       </bpmn:lane>
       <bpmn:lane id="Lane_0c6xk19" name="Эксперт-криминалист">
@@ -550,7 +550,7 @@
   </bpmn:process>
   <bpmn:process id="Process_Court" isExecutable="true">
     <bpmn:laneSet id="LaneSet_1ayt1kw">
-      <bpmn:lane id="Lane_1s2ta26" name="Первой инстанции">
+      <bpmn:lane id="Lane_1s2ta26" name="Суд первой инстанции">
         <bpmn:flowNodeRef>Event_1s92o1r</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Activity_0z7fx4y</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Gateway_0kvmv89</bpmn:flowNodeRef>
@@ -593,7 +593,7 @@
         <bpmn:flowNodeRef>Activity_0rr1f0l</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Activity_0plk0cc</bpmn:flowNodeRef>
       </bpmn:lane>
-      <bpmn:lane id="Lane_1lwvkhb" name="Кассационный">
+      <bpmn:lane id="Lane_1lwvkhb" name="Кассационный суд">
         <bpmn:flowNodeRef>Activity_1pjetmd</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Event_1b8kv7o</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Event_0kav9ld</bpmn:flowNodeRef>
@@ -605,7 +605,7 @@
         <bpmn:flowNodeRef>Activity_1audnjb</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Activity_1quuh8m</bpmn:flowNodeRef>
       </bpmn:lane>
-      <bpmn:lane id="Lane_0lz4sdq" name="Верховной">
+      <bpmn:lane id="Lane_0lz4sdq" name="Верховный суд">
         <bpmn:flowNodeRef>Activity_156k387</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Event_00atdr9</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Event_06yeufk</bpmn:flowNodeRef>
